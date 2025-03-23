@@ -1,60 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>મારી વેબસાઇટ</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Noto+Sans+Gujarati:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="sitar-string-decoration"></div>
+    <div class="musical-wave"></div>
+    <div class="musical-notes"></div>
     
     <header>
         <div class="profile-container">
             <div class="profile-image">
-                <img id="profile-photo" src="" alt="Profile Photo">
+                <img id="profile-photo" src="" alt="પ્રોફાઇલ ફોટો">
             </div>
-            <h1 id="name">Your Name</h1>
-            <p id="tagline">Your Tagline</p>
+            <h1 id="name" data-english="Your Name">તમારું નામ</h1>
+            <p id="tagline" data-english="Your Tagline">તમારી ટેગલાઇન</p>
+            <div class="sitar-string-decoration"></div>
+            <p class="about" data-english="A passionate sitar player and music lover">એક ઉત્સાહી સિતાર વાદક અને સંગીત પ્રેમી</p>
         </div>
     </header>
 
     <main>
         <section class="about-me">
-            <h2><i class="fas fa-om"></i> About Me</h2>
-            <p id="about-text"></p>
+            <h2><i class="fas fa-om"></i> <span data-english="About Me">મારા વિશે</span></h2>
+            <p id="about-text" data-english="Write a brief description about yourself here. You can include your interests, passions, and what makes you unique.">તમારા વિશે સંક્ષિપ્ત વર્ણન અહીં લખો. તમે તમારી રુચિઓ, જુસ્સો અને તમને વિશિષ્ટ બનાવે છે તે સમાવેશ કરી શકો છો.</p>
         </section>
 
         <section class="favorites">
-            <h2><i class="fas fa-music"></i> My Favorites</h2>
+            <h2><i class="fas fa-music"></i> <span data-english="My Favorites">મારા પ્રિય</span></h2>
             <div class="favorites-grid">
                 <div class="favorite-item">
-                    <h3><i class="fas fa-music"></i> Favorite Song</h3>
-                    <p id="favorite-song"></p>
+                    <h3><i class="fas fa-music"></i> <span data-english="Favorite Song">મનપસંદ ગીત</span></h3>
+                    <p id="favorite-song" data-english="Your favorite song name">તમારું પ્રિય ગીત</p>
                 </div>
                 <div class="favorite-item">
-                    <h3><i class="fas fa-film"></i> Favorite Movie</h3>
-                    <p id="favorite-movie"></p>
+                    <h3><i class="fas fa-film"></i> <span data-english="Favorite Movie">મનપસંદ ફિલ્મ</span></h3>
+                    <p id="favorite-movie" data-english="Your favorite movie title">તમારી પ્રિય ફિલ્મ</p>
                 </div>
                 <div class="favorite-item">
-                    <h3><i class="fas fa-tv"></i> Favorite TV Show</h3>
-                    <p id="favorite-tvshow"></p>
+                    <h3><i class="fas fa-tv"></i> <span data-english="Favorite TV Show">મનપસંદ ટીવી શો</span></h3>
+                    <p id="favorite-tvshow" data-english="Your favorite TV show">તમારો પ્રિય ટીવી શો</p>
                 </div>
                 <div class="favorite-item">
-                    <h3><i class="fas fa-gamepad"></i> Favorite Game</h3>
-                    <p id="favorite-game"></p>
+                    <h3><i class="fas fa-gamepad"></i> <span data-english="Favorite Game">મનપસંદ ગેમ</span></h3>
+                    <p id="favorite-game" data-english="Your favorite game">તમારી પ્રિય ગેમ</p>
                 </div>
                 <div class="favorite-item">
-                    <h3><i class="fas fa-running"></i> Favorite Sport</h3>
-                    <p id="favorite-sport"></p>
+                    <h3><i class="fas fa-running"></i> <span data-english="Favorite Sport">મનપસંદ રમત</span></h3>
+                    <p id="favorite-sport" data-english="Your favorite sport">તમારી પ્રિય રમત</p>
                 </div>
             </div>
         </section>
 
         <section class="gallery">
-            <h2><i class="fas fa-images"></i> Photo Gallery</h2>
+            <h2><i class="fas fa-images"></i> <span data-english="Photo Gallery">ફોટો ગેલેરી</span></h2>
             <div class="gallery-grid" id="photo-gallery">
                 <!-- Photos will be dynamically added here -->
             </div>
@@ -63,7 +66,7 @@
 
     <footer>
         <div class="sitar-string-decoration"></div>
-        <p>Created with <i class="fas fa-heart"></i> and <i class="fas fa-music"></i></p>
+        <p><i class="fas fa-music"></i> <span data-english="Made with love and music">પ્રેમ અને સંગીત સાથે બનાવ્યું</span></p>
     </footer>
 
     <script src="script.js"></script>

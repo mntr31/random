@@ -1,0 +1,53 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Create a personal website using HTML, CSS, and JavaScript with a design inspired by this dramatic sitar image. The website should have the following features:
+
+1. A responsive design that works on mobile and desktop
+2. Primary language in Gujarati with English translations on hover
+3. Navigation menu with sitar string-like animation
+4. Sections for:
+   - About me with photo gallery
+   - Favorite songs
+   - Favorite movies
+   - Favorite TV shows
+   - Favorite games
+   - Favorite sports
+
+The data for these sections will be loaded from a data.json file with this structure:
+{
+  "name": {
+    "gujarati": "[Your Name in Gujarati]",
+    "english": "[Your Name in English]"
+  },
+  "bio": {
+    "gujarati": "[Your Bio in Gujarati]",
+    "english": "[Your Bio in English]"
+  },
+  "photos": ["photo1.jpg", "photo2.jpg", ...],
+  "favorites": {
+    "songs": [{"title": {"gujarati": "Song Name in Gujarati", "english": "Song Name in English"}, "artist": {"gujarati": "Artist in Gujarati", "english": "Artist in English"}, "cover": "cover.jpg", "link": "spotify-link"},...],
+    "movies": [{"title": {"gujarati": "Movie in Gujarati", "english": "Movie in English"}, "director": {"gujarati": "Director in Gujarati", "english": "Director in English"}, "year": 2020, "poster": "poster.jpg"},...],
+    "tvShows": [{"title": {"gujarati": "Show in Gujarati", "english": "Show in English"}, "genre": {"gujarati": "Genre in Gujarati", "english": "Genre in English"}, "poster": "poster.jpg"},...],
+    "games": [{"title": {"gujarati": "Game in Gujarati", "english": "Game in English"}, "platform": {"gujarati": "Platform in Gujarati", "english": "Platform in English"}, "cover": "cover.jpg"},...],
+    "sports": [{"name": {"gujarati": "Sport in Gujarati", "english": "Sport in English"}, "image": "sport.jpg"},...]
+  }
+}
+
+Design elements should:
+- Use the exact rich color palette from the sitar image (deep burgundy reds, polished wood browns, ornate golds, with dramatic golden light rays)
+- Create a parallax scrolling effect that mimics the light-ray motion in the image
+- Include animated golden light rays emanating from elements when interacted with
+- Feature hover effects that look like vibrating sitar strings
+- Implement a language toggle system where text displays in Gujarati by default and translates to English on hover/focus, returning to Gujarati when focus is removed
+- Use a custom cursor that leaves a trail of golden light particles
+- Include ambient sitar music that plays softly in the background (with toggle on/off)
+- Add subtle animations where elements appear to "resonate" like sitar strings when scrolling to them
+- Use Gujarati fonts that complement the artistic theme while remaining readable
+- Create section transitions that mimic the visual energy of the sitar image with directional light sweeps
+- Implement micro-interactions where small UI elements respond musically (with both visual and optional sound feedback)
+- Add decorative elements inspired by the ornate craftsmanship seen on the sitar body
+
+Please create the HTML, CSS, and JavaScript files needed for this website, with detailed comments explaining each part of the code. Include instructions for importing appropriate Gujarati fonts and handling the bilingual text display system.

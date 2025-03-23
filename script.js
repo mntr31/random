@@ -6,16 +6,24 @@ async function loadData() {
         
         // Update profile information
         document.getElementById('profile-photo').src = data.profilePhoto;
-        document.getElementById('name').textContent = data.name;
-        document.getElementById('tagline').textContent = data.tagline;
-        document.getElementById('about-text').textContent = data.about;
+        document.getElementById('name').textContent = data.name.gujarati;
+        document.getElementById('name').setAttribute('data-english', data.name.english);
+        document.getElementById('tagline').textContent = data.tagline.gujarati;
+        document.getElementById('tagline').setAttribute('data-english', data.tagline.english);
+        document.getElementById('about-text').textContent = data.about.gujarati;
+        document.getElementById('about-text').setAttribute('data-english', data.about.english);
 
         // Update favorites
-        document.getElementById('favorite-song').textContent = data.favorites.song;
-        document.getElementById('favorite-movie').textContent = data.favorites.movie;
-        document.getElementById('favorite-tvshow').textContent = data.favorites.tvShow;
-        document.getElementById('favorite-game').textContent = data.favorites.game;
-        document.getElementById('favorite-sport').textContent = data.favorites.sport;
+        document.getElementById('favorite-song').textContent = data.favorites.song.gujarati;
+        document.getElementById('favorite-song').setAttribute('data-english', data.favorites.song.english);
+        document.getElementById('favorite-movie').textContent = data.favorites.movie.gujarati;
+        document.getElementById('favorite-movie').setAttribute('data-english', data.favorites.movie.english);
+        document.getElementById('favorite-tvshow').textContent = data.favorites.tvShow.gujarati;
+        document.getElementById('favorite-tvshow').setAttribute('data-english', data.favorites.tvShow.english);
+        document.getElementById('favorite-game').textContent = data.favorites.game.gujarati;
+        document.getElementById('favorite-game').setAttribute('data-english', data.favorites.game.english);
+        document.getElementById('favorite-sport').textContent = data.favorites.sport.gujarati;
+        document.getElementById('favorite-sport').setAttribute('data-english', data.favorites.sport.english);
 
         // Update photo gallery
         const galleryContainer = document.getElementById('photo-gallery');
@@ -25,7 +33,7 @@ async function loadData() {
             
             const img = document.createElement('img');
             img.src = photo.url;
-            img.alt = photo.description;
+            img.alt = photo.description.gujarati;
             
             galleryItem.appendChild(img);
             galleryContainer.appendChild(galleryItem);
@@ -41,7 +49,7 @@ async function loadData() {
 // Function to create floating musical notes animation
 function addMusicalNotes() {
     const notes = ['♪', '♫', '♬', '♩', '♪', '♫', '♬'];
-    const colors = ['#FFD700', '#D2691E', '#8B4513'];
+    const colors = ['#000000', '#333333', '#666666'];
     
     setInterval(() => {
         const note = document.createElement('div');
@@ -74,11 +82,23 @@ style.textContent = `
     @keyframes floatUp {
         0% {
             transform: translateY(100vh) rotate(0deg);
-            opacity: 1;
+            opacity: 0.1;
+        }
+        25% {
+            transform: translateY(2px) rotate(1deg);
+            opacity: 0.15;
+        }
+        50% {
+            transform: translateY(-2px) rotate(-1deg);
+            opacity: 0.2;
+        }
+        75% {
+            transform: translateY(1px) rotate(-2deg);
+            opacity: 0.15;
         }
         100% {
-            transform: translateY(-100px) rotate(360deg);
-            opacity: 0;
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.1;
         }
     }
 `;

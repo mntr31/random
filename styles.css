@@ -5,7 +5,7 @@
     --text-color: #333;
     --background-color: #FFF8DC;
     --font-primary: 'Poppins', sans-serif;
-    --font-secondary: 'Noto Sans Devanagari', sans-serif;
+    --font-secondary: 'Noto Sans Gujarati', sans-serif;
 }
 
 * {
@@ -15,29 +15,186 @@
 }
 
 body {
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Musical Note Animation */
+.musical-notes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.musical-note {
+    position: absolute;
+    font-size: 28px;
+    color: var(--accent-color);
+    opacity: 0;
+    animation: floatNote 6s linear infinite;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes floatNote {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.9;
+        transform: translateY(80vh) rotate(180deg) scale(1.2);
+    }
+    80% {
+        opacity: 0.9;
+        transform: translateY(20vh) rotate(360deg) scale(1);
+    }
+    100% {
+        transform: translateY(-100px) rotate(540deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Sitar String Decoration */
 .sitar-string-decoration {
-    height: 2px;
+    height: 3px;
     background: linear-gradient(90deg, 
         transparent 0%, 
-        var(--primary-color) 20%, 
+        var(--accent-color) 15%, 
+        var(--primary-color) 30%, 
         var(--accent-color) 50%, 
-        var(--primary-color) 80%, 
+        var(--primary-color) 70%, 
+        var(--accent-color) 85%, 
         transparent 100%);
     margin: 20px 0;
+    position: relative;
+    animation: stringVibration 3s infinite;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
+.sitar-string-decoration::before,
+.sitar-string-decoration::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    animation: stringVibration 2s infinite;
+}
+
+.sitar-string-decoration::before {
+    animation-delay: 0.5s;
+}
+
+.sitar-string-decoration::after {
+    animation-delay: 1s;
+}
+
+@keyframes stringVibration {
+    0%, 100% {
+        transform: translateY(0) scaleX(1);
+    }
+    25% {
+        transform: translateY(2px) scaleX(1.02);
+    }
+    50% {
+        transform: translateY(0) scaleX(1);
+    }
+    75% {
+        transform: translateY(-2px) scaleX(0.98);
+    }
+}
+
+/* Musical Wave Background */
+.musical-wave {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent 0px,
+        transparent 10px,
+        rgba(255, 215, 0, 0.05) 10px,
+        rgba(255, 215, 0, 0.05) 20px
+    );
+    pointer-events: none;
+    z-index: 0;
+    animation: waveMove 20s linear infinite;
+}
+
+@keyframes waveMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 100px;
+    }
+}
+
+/* Language Transition Effect */
+[data-english] {
+    position: relative;
+    display: inline-block;
+}
+
+[data-english]::before {
+    content: attr(data-english);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    font-family: var(--font-primary);
+    pointer-events: none;
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+[data-english]:hover {
+    color: transparent;
+}
+
+[data-english]:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure English stays visible on hover */
+[data-english]:not(:hover) {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+[data-english]:not(:hover)::before {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Header Styles */
 header {
     text-align: center;
     padding: 40px 20px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     position: relative;
+    border-bottom: 2px solid var(--accent-color);
 }
 
 .profile-container {
@@ -53,6 +210,16 @@ header {
     overflow: hidden;
     border: 4px solid var(--accent-color);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    animation: glowPulse 3s infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    }
 }
 
 .profile-image img {
@@ -65,21 +232,47 @@ h1 {
     font-family: var(--font-secondary);
     font-size: 2.5em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--primary-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
+/* Section Styles */
 section {
     margin-bottom: 40px;
     background: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--accent-color);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 215, 0, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+section:hover::after {
+    left: 100%;
 }
 
 h2 {
@@ -89,6 +282,8 @@ h2 {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight: 600;
+    font-size: 1.8em;
 }
 
 h2 i {
@@ -102,22 +297,54 @@ h2 i {
 }
 
 .favorite-item {
-    background: var(--background-color);
+    background: linear-gradient(135deg, var(--background-color), white);
     padding: 20px;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    border: 1px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
 }
 
-.favorite-item:hover {
-    transform: translateY(-5px);
+.favorite-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 215, 0, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.favorite-item:hover::before {
+    left: 100%;
 }
 
 .favorite-item h3 {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 8px;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.favorite-item p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+.favorite-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-grid {
@@ -131,6 +358,29 @@ h2 i {
     overflow: hidden;
     border-radius: 8px;
     aspect-ratio: 1;
+    border: 1px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 215, 0, 0.2),
+        transparent
+    );
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
 }
 
 .gallery-item img {
@@ -140,19 +390,18 @@ h2 i {
     transition: transform 0.3s ease;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
 footer {
     text-align: center;
     padding: 20px;
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
+    border-top: 2px solid var(--accent-color);
 }
 
 footer p {
     margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: 500;
 }
 
 footer i {
@@ -169,7 +418,19 @@ footer i {
         font-size: 2em;
     }
 
+    h2 {
+        font-size: 1.5em;
+    }
+
     .favorites-grid {
         grid-template-columns: 1fr;
+    }
+
+    .favorite-item h3 {
+        font-size: 1.1em;
+    }
+
+    .favorite-item p {
+        font-size: 1em;
     }
 } 

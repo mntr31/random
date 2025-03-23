@@ -1,27 +1,60 @@
 {
-    "name": "Your Name",
-    "tagline": "Your Tagline",
+    "name": {
+        "gujarati": "તમારું નામ",
+        "english": "Your Name"
+    },
+    "tagline": {
+        "gujarati": "તમારી ટેગલાઇન",
+        "english": "Your Tagline"
+    },
     "profilePhoto": "path/to/your/photo.jpg",
-    "about": "Write a brief description about yourself here. You can include your interests, passions, and what makes you unique.",
+    "about": {
+        "gujarati": "તમારા વિશે સંક્ષિપ્ત વર્ણન અહીં લખો. તમે તમારી રુચિઓ, જુસ્સો અને તમને વિશિષ્ટ બનાવે છે તે સમાવેશ કરી શકો છો.",
+        "english": "Write a brief description about yourself here. You can include your interests, passions, and what makes you unique."
+    },
     "favorites": {
-        "song": "Your favorite song name",
-        "movie": "Your favorite movie title",
-        "tvShow": "Your favorite TV show",
-        "game": "Your favorite game",
-        "sport": "Your favorite sport"
+        "song": {
+            "gujarati": "તમારું પ્રિય ગીત",
+            "english": "Your favorite song name"
+        },
+        "movie": {
+            "gujarati": "તમારી પ્રિય ફિલ્મ",
+            "english": "Your favorite movie title"
+        },
+        "tvShow": {
+            "gujarati": "તમારો પ્રિય ટીવી શો",
+            "english": "Your favorite TV show"
+        },
+        "game": {
+            "gujarati": "તમારી પ્રિય ગેમ",
+            "english": "Your favorite game"
+        },
+        "sport": {
+            "gujarati": "તમારી પ્રિય રમત",
+            "english": "Your favorite sport"
+        }
     },
     "photos": [
         {
             "url": "path/to/photo1.jpg",
-            "description": "Description of photo 1"
+            "description": {
+                "gujarati": "ફોટો 1 નું વર્ણન",
+                "english": "Description of photo 1"
+            }
         },
         {
             "url": "path/to/photo2.jpg",
-            "description": "Description of photo 2"
+            "description": {
+                "gujarati": "ફોટો 2 નું વર્ણન",
+                "english": "Description of photo 2"
+            }
         },
         {
             "url": "path/to/photo3.jpg",
-            "description": "Description of photo 3"
+            "description": {
+                "gujarati": "ફોટો 3 નું વર્ણન",
+                "english": "Description of photo 3"
+            }
         }
     ]
 } 
