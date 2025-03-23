@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #8B4513;
-    --secondary-color: #D2691E;
-    --accent-color: #FFD700;
-    --text-color: #333;
-    --background-color: #FFF8DC;
+    --gunmetal: #2f323aff;
+    --chinese-violet: #77567aff;
+    --french-mauve: #c47ac0ff;
+    --amaranth-pink: #e39ec1ff;
+    --tea-rose-red: #debac0ff;
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Noto Sans Gujarati', sans-serif;
 }
@@ -16,8 +16,8 @@
 
 body {
     font-family: var(--font-secondary);
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--tea-rose-red);
+    color: var(--gunmetal);
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
@@ -40,10 +40,10 @@ body {
 .musical-note {
     position: absolute;
     font-size: 28px;
-    color: var(--accent-color);
+    color: var(--french-mauve);
     opacity: 0;
     animation: floatNote 6s linear infinite;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    text-shadow: 0 0 10px rgba(196, 122, 192, 0.5);
 }
 
 @keyframes floatNote {
@@ -70,16 +70,16 @@ body {
     height: 3px;
     background: linear-gradient(90deg, 
         transparent 0%, 
-        var(--accent-color) 15%, 
-        var(--primary-color) 30%, 
-        var(--accent-color) 50%, 
-        var(--primary-color) 70%, 
-        var(--accent-color) 85%, 
+        var(--french-mauve) 15%, 
+        var(--chinese-violet) 30%, 
+        var(--french-mauve) 50%, 
+        var(--chinese-violet) 70%, 
+        var(--french-mauve) 85%, 
         transparent 100%);
     margin: 20px 0;
     position: relative;
     animation: stringVibration 3s infinite;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 10px rgba(196, 122, 192, 0.3);
 }
 
 .sitar-string-decoration::before,
@@ -127,8 +127,8 @@ body {
         45deg,
         transparent 0px,
         transparent 10px,
-        rgba(255, 215, 0, 0.05) 10px,
-        rgba(255, 215, 0, 0.05) 20px
+        rgba(119, 86, 122, 0.05) 10px,
+        rgba(119, 86, 122, 0.05) 20px
     );
     pointer-events: none;
     z-index: 0;
@@ -164,7 +164,7 @@ body {
     pointer-events: none;
     white-space: nowrap;
     font-weight: 500;
-    color: var(--primary-color);
+    color: var(--chinese-violet);
 }
 
 [data-english]:hover {
@@ -178,7 +178,7 @@ body {
 
 /* Ensure English stays visible on hover */
 [data-english]:not(:hover) {
-    color: var(--text-color);
+    color: var(--gunmetal);
     font-weight: 500;
 }
 
@@ -191,10 +191,10 @@ body {
 header {
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    background: linear-gradient(135deg, var(--gunmetal), var(--chinese-violet));
+    color: var(--tea-rose-red);
     position: relative;
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--french-mauve);
 }
 
 .profile-container {
@@ -208,17 +208,17 @@ header {
     margin: 0 auto 20px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid var(--accent-color);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border: 4px solid var(--french-mauve);
+    box-shadow: 0 0 20px rgba(47, 50, 58, 0.2);
     animation: glowPulse 3s infinite;
 }
 
 @keyframes glowPulse {
     0%, 100% {
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        box-shadow: 0 0 20px rgba(196, 122, 192, 0.3);
     }
     50% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        box-shadow: 0 0 30px rgba(196, 122, 192, 0.5);
     }
 }
 
@@ -232,7 +232,7 @@ h1 {
     font-family: var(--font-secondary);
     font-size: 2.5em;
     margin-bottom: 10px;
-    color: var(--primary-color);
+    color: var(--tea-rose-red);
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -243,8 +243,8 @@ section {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--accent-color);
+    box-shadow: 0 4px 6px rgba(47, 50, 58, 0.1);
+    border: 1px solid var(--french-mauve);
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -252,7 +252,7 @@ section {
 
 section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(47, 50, 58, 0.15);
 }
 
 section::after {
@@ -265,7 +265,7 @@ section::after {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 215, 0, 0.1),
+        rgba(196, 122, 192, 0.1),
         transparent
     );
     transition: 0.5s;
@@ -276,7 +276,7 @@ section:hover::after {
 }
 
 h2 {
-    color: var(--primary-color);
+    color: var(--chinese-violet);
     font-family: var(--font-secondary);
     margin-bottom: 20px;
     display: flex;
@@ -287,7 +287,7 @@ h2 {
 }
 
 h2 i {
-    color: var(--secondary-color);
+    color: var(--french-mauve);
 }
 
 .favorites-grid {
@@ -297,11 +297,11 @@ h2 i {
 }
 
 .favorite-item {
-    background: linear-gradient(135deg, var(--background-color), white);
+    background: linear-gradient(135deg, var(--tea-rose-red), white);
     padding: 20px;
     border-radius: 8px;
     transition: all 0.3s ease;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--french-mauve);
     position: relative;
     overflow: hidden;
 }
@@ -316,7 +316,7 @@ h2 i {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 215, 0, 0.2),
+        rgba(196, 122, 192, 0.2),
         transparent
     );
     transition: 0.5s;
@@ -327,7 +327,7 @@ h2 i {
 }
 
 .favorite-item h3 {
-    color: var(--primary-color);
+    color: var(--chinese-violet);
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -339,12 +339,12 @@ h2 i {
 .favorite-item p {
     font-size: 1.1em;
     line-height: 1.6;
-    color: var(--secondary-color);
+    color: var(--gunmetal);
 }
 
 .favorite-item:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(47, 50, 58, 0.1);
 }
 
 .gallery-grid {
@@ -358,7 +358,7 @@ h2 i {
     overflow: hidden;
     border-radius: 8px;
     aspect-ratio: 1;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--french-mauve);
     transition: all 0.3s ease;
 }
 
@@ -372,7 +372,7 @@ h2 i {
     background: linear-gradient(
         45deg,
         transparent,
-        rgba(255, 215, 0, 0.2),
+        rgba(196, 122, 192, 0.2),
         transparent
     );
     opacity: 0;
@@ -393,9 +393,9 @@ h2 i {
 footer {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    border-top: 2px solid var(--accent-color);
+    background: linear-gradient(135deg, var(--gunmetal), var(--chinese-violet));
+    color: var(--tea-rose-red);
+    border-top: 2px solid var(--french-mauve);
 }
 
 footer p {
@@ -405,7 +405,7 @@ footer p {
 }
 
 footer i {
-    color: var(--accent-color);
+    color: var(--french-mauve);
 }
 
 @media (max-width: 768px) {
@@ -433,4 +433,77 @@ footer i {
     .favorite-item p {
         font-size: 1em;
     }
+}
+
+/* Sitar Strings Container */
+.sitar-strings-container {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.sitar-string {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--french-mauve) 15%, 
+        var(--chinese-violet) 30%, 
+        var(--french-mauve) 50%, 
+        var(--chinese-violet) 70%, 
+        var(--french-mauve) 85%, 
+        transparent 100%);
+    position: relative;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(196, 122, 192, 0.3);
+    opacity: 0.8;
+}
+
+.sitar-string::before,
+.sitar-string::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sitar-string:hover {
+    height: 3px;
+    box-shadow: 0 0 15px rgba(196, 122, 192, 0.5);
+    opacity: 1;
+}
+
+.sitar-string:hover::before,
+.sitar-string:hover::after {
+    opacity: 1;
+    animation: stringVibration 0.5s infinite;
+}
+
+.sitar-string:hover::after {
+    animation-delay: 0.1s;
+}
+
+/* Adjust z-index for other elements */
+header, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
+.musical-notes, .musical-wave {
+    z-index: 0;
 } 

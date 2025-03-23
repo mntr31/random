@@ -105,4 +105,102 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Load data when the page loads
-document.addEventListener('DOMContentLoaded', loadData); 
+document.addEventListener('DOMContentLoaded', loadData);
+
+// Create AudioContext for sound synthesis
+let audioContext;
+let audioContextInitialized = false;
+
+// Function to initialize audio context
+function initAudioContext() {
+    if (!audioContextInitialized) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        audioContextInitialized = true;
+        console.log('AudioContext initialized');
+    }
+}
+
+// Function to create a sitar-like sound
+function createSitarSound(frequency) {
+    try {
+        if (!audioContextInitialized) {
+            initAudioContext();
+        }
+
+        // Resume audio context if it's suspended
+        if (audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
+
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        // Set up oscillator with a more sitar-like waveform
+        oscillator.type = 'triangle';
+        oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+        
+        // Create a more complex envelope for sitar-like sound
+        gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+        gainNode.gain.linearRampToValueAtTime(0.7, audioContext.currentTime + 0.01);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1.5);
+        
+        // Add modulation for sitar-like character
+        const modulator = audioContext.createOscillator();
+        modulator.type = 'sine';
+        modulator.frequency.setValueAtTime(frequency * 2, audioContext.currentTime);
+        modulator.frequency.exponentialRampToValueAtTime(frequency * 1.5, audioContext.currentTime + 0.5);
+        
+        // Add filter for more authentic sitar sound
+        const filter = audioContext.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(frequency * 2, audioContext.currentTime);
+        filter.Q.setValueAtTime(10, audioContext.currentTime);
+        
+        // Connect nodes
+        modulator.connect(gainNode);
+        oscillator.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        // Start and stop
+        oscillator.start();
+        modulator.start();
+        oscillator.stop(audioContext.currentTime + 1.5);
+        modulator.stop(audioContext.currentTime + 0.5);
+        
+        console.log('Playing note:', frequency);
+    } catch (error) {
+        console.error('Error creating sound:', error);
+    }
+}
+
+// Define frequencies for each note (in Hz)
+const noteFrequencies = {
+    'sa': 261.63, // C4
+    're': 293.66, // D4
+    'ga': 329.63, // E4
+    'ma': 349.23, // F4
+    'pa': 392.00, // G4
+    'dha': 440.00, // A4
+    'ni': 493.88  // B4
+};
+
+// Initialize audio context on any user interaction
+document.addEventListener('click', initAudioContext, { once: true });
+document.addEventListener('touchstart', initAudioContext, { once: true });
+document.addEventListener('keydown', initAudioContext, { once: true });
+
+// Add event listeners to sitar strings
+document.querySelectorAll('.sitar-string').forEach(string => {
+    string.addEventListener('mouseenter', () => {
+        const note = string.getAttribute('data-note');
+        createSitarSound(noteFrequencies[note]);
+    });
+    
+    // Add touch support
+    string.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // Prevent scrolling
+        const note = string.getAttribute('data-note');
+        createSitarSound(noteFrequencies[note]);
+    });
+}); 
