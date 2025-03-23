@@ -1,0 +1,27 @@
+{
+    "name": "Your Name",
+    "tagline": "Your Tagline",
+    "profilePhoto": "path/to/your/photo.jpg",
+    "about": "Write a brief description about yourself here. You can include your interests, passions, and what makes you unique.",
+    "favorites": {
+        "song": "Your favorite song name",
+        "movie": "Your favorite movie title",
+        "tvShow": "Your favorite TV show",
+        "game": "Your favorite game",
+        "sport": "Your favorite sport"
+    },
+    "photos": [
+        {
+            "url": "path/to/photo1.jpg",
+            "description": "Description of photo 1"
+        },
+        {
+            "url": "path/to/photo2.jpg",
+            "description": "Description of photo 2"
+        },
+        {
+            "url": "path/to/photo3.jpg",
+            "description": "Description of photo 3"
+        }
+    ]
+} 

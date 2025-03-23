@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="sitar-string-decoration"></div>
+    
+    <header>
+        <div class="profile-container">
+            <div class="profile-image">
+                <img id="profile-photo" src="" alt="Profile Photo">
+            </div>
+            <h1 id="name">Your Name</h1>
+            <p id="tagline">Your Tagline</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-me">
+            <h2><i class="fas fa-om"></i> About Me</h2>
+            <p id="about-text"></p>
+        </section>
+
+        <section class="favorites">
+            <h2><i class="fas fa-music"></i> My Favorites</h2>
+            <div class="favorites-grid">
+                <div class="favorite-item">
+                    <h3><i class="fas fa-music"></i> Favorite Song</h3>
+                    <p id="favorite-song"></p>
+                </div>
+                <div class="favorite-item">
+                    <h3><i class="fas fa-film"></i> Favorite Movie</h3>
+                    <p id="favorite-movie"></p>
+                </div>
+                <div class="favorite-item">
+                    <h3><i class="fas fa-tv"></i> Favorite TV Show</h3>
+                    <p id="favorite-tvshow"></p>
+                </div>
+                <div class="favorite-item">
+                    <h3><i class="fas fa-gamepad"></i> Favorite Game</h3>
+                    <p id="favorite-game"></p>
+                </div>
+                <div class="favorite-item">
+                    <h3><i class="fas fa-running"></i> Favorite Sport</h3>
+                    <p id="favorite-sport"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <h2><i class="fas fa-images"></i> Photo Gallery</h2>
+            <div class="gallery-grid" id="photo-gallery">
+                <!-- Photos will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="sitar-string-decoration"></div>
+        <p>Created with <i class="fas fa-heart"></i> and <i class="fas fa-music"></i></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
